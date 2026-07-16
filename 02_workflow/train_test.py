@@ -69,7 +69,7 @@ test_dataset = torchvision.datasets.MNIST(root="./data",train = False,download =
 train_loader = DataLoader(train_dataset,batch_size = 64,shuffle = True) #check the images in a different random order
 test_loader = DataLoader(test_dataset,batch_size = 1000,shuffle = False)
 
-    #create the Neural Network
+#create the Neural Network
 class MNISTClassifier(nn.Module):
     def __init__(self):
         super().__init__()
