@@ -76,3 +76,40 @@ print(f"r1 shape:{r1.shape}") #r1 shape:torch.Size([3, 2, 4])
 pic = torch.randn(224,224,3)
 pic_torch = pic.permute(2,0,1) #pic_torch shape torch.Size([3, 224, 224])
 print(f"pic_torch shape {pic_torch.shape}")
+
+#Concatenate along the specified dimension; other dimensions must be identical
+a = torch.tensor([[1,2],
+                  [3,4]])
+b = torch.tensor([[5,6],
+                  [7,8]])
+c = torch.cat([a,b],dim = 0)
+print(c)
+d = torch.cat([a,b],dim = 1)
+print(d)
+'''
+tensor([[1, 2],
+        [3, 4],
+        [5, 6],
+        [7, 8]])
+tensor([[1, 2, 5, 6],
+        [3, 4, 7, 8]])
+'''
+
+
+#increase a new dimention
+a = torch.tensor([1,2])
+b = torch.tensor([3,4])
+c = torch.stack([a,b])   #default dim = 0
+print(f"stack[a,b] shape{c.shape}")
+print(c)
+'''
+tensor([[1, 2],
+        [3, 4]])
+'''
+d = torch.stack([a,b],dim = 1)
+print(f"stack[a,b] ,dim = 1,{d.shape}")
+print(d)
+'''
+tensor([[1, 3],
+        [2, 4]])
+'''
